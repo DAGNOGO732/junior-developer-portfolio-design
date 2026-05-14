@@ -118,32 +118,30 @@ export default function Skills() {
 
         {/* Tools visual grid */}
         <div className="flex justify">
-  <img width={200} height={200} src="/images/image1.jpg"></img>
-  <img width={200} height={200} src="/images/image3.jpg"></img>
-  <img width={200} height={200} src="/images/image2.jpg"></img>  
+  <img width={550} height={550} src="/images/image1.jpg"></img>
+  <img width={550} height={550} src="/images/image3.jpg"></img> 
 </div>
+<br /><br />
       <div className="flex justify">
-  <img width={200} height={200} src="/images/image4.jpg"></img>
-  <img width={200} height={200} src="/images/image5.jpg"></img>
-  <img width={200} height={200} src="/images/image6.jpg"></img>  
+  <img width={550} height={550} src="/images/image4.jpg"></img>
+  <img width={550} height={550} src="/images/image5.jpg"></img>
 </div> <br />
 <h1>MES MOCKUP</h1><br />
   <div className="flex justify">
-  <img width={300} height={200} src="/images/image7.jpg"></img>
-  <img width={300} height={200} src="/images/image8.jpg"></img>
-  <img width={90} height={80} src="/images/image9.jpg"></img>  
+  <img width={550} height={550} src="/images/image7.jpg"></img>
+  <img width={550} height={550} src="/images/image8.jpg"></img>
 </div> <br />
 <h1>MES ANIMATIONS</h1><br />
 <div className="flex justify">
-  <video autoPlay width="340" height="160" controls poster="image.jpg"><source src="/vidéos/vidéo1.mp4" type="video/mp4" /></video>
-    <video autoPlay width="340" height="160" controls poster="image.jpg"><source src="/vidéos/vidéo2.mp4" type="video/mp4" /></video>
-    <video autoPlay width="340" height="160" controls poster="image.jpg"><source src="/vidéos/vidéo3.mp4" type="video/mp4" /></video>
+  <video autoPlay width="370" height="160" controls poster="image.jpg"><source src="/vidéos/vidéo1.mp4" type="video/mp4" /></video>
+    <video autoPlay width="370" height="160" controls poster="image.jpg"><source src="/vidéos/vidéo2.mp4" type="video/mp4" /></video>
+    <video autoPlay width="370" height="160" controls poster="image.jpg"><source src="/vidéos/vidéo3.mp4" type="video/mp4" /></video>
 
 </div> <br />
 <div className="flex justify">
-  <video autoPlay width="340" height="160" controls poster="image.jpg"><source src="/vidéos/vidéo4.mp4" type="video/mp4" /></video>
-    <video autoPlay width="340" height="160" controls poster="image.jpg"><source src="/vidéos/vidéo5.mp4" type="video/mp4" /></video>
-    <video autoPlay width="340" height="160" controls poster="image.jpg"><source src="/vidéos/vidéo6.mp4" type="video/mp4" /></video>
+  <video autoPlay width="370" height="160" controls poster="image.jpg"><source src="/vidéos/vidéo4.mp4" type="video/mp4" /></video>
+    <video autoPlay width="370" height="160" controls poster="image.jpg"><source src="/vidéos/vidéo5.mp4" type="video/mp4" /></video>
+    <video autoPlay width="370" height="160" controls poster="image.jpg"><source src="/vidéos/vidéo6.mp4" type="video/mp4" /></video>
 
 </div>
 
