@@ -35,12 +35,19 @@ export default function Skills() {
     return () => observer.disconnect();
   }, []);
 
+  // Composant réutilisable pour les titres de section
+  const SectionTitle = ({ children }: { children: React.ReactNode }) => (
+    <h2 className="text-2xl md:text-3xl font-bold text-white mt-12 mb-6 border-l-4 border-[#c026d3] pl-4">
+      {children}
+    </h2>
+  );
+
   return (
     <section ref={sectionRef} id="skills" className="py-24 relative bg-white/[0.02]">
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#7e22ce]/10 rounded-full blur-3xl" />
 
       <div className="max-w-6xl mx-auto px-6">
-        {/* Header */}
+        {/* Header Compétences */}
         <div className="text-center mb-16">
           <p className="text-[#c026d3] text-sm font-semibold tracking-widest uppercase mb-3">
             Expertise
@@ -82,7 +89,7 @@ export default function Skills() {
                   </div>
                   <div className="flex items-center gap-2">
                     <span
-                      className="text-xs px-2 py-0.5 rounded-full font-medium"
+                      className="text-xs px-2 py-0.5 rounded-full font-medium hidden sm:block"
                       style={{ backgroundColor: `${color}20`, color }}
                     >
                       {skill.category}
@@ -104,47 +111,60 @@ export default function Skills() {
                     }}
                   />
                 </div>
-
-                {/* Level label */}
-                <div className="flex justify-between mt-2">
-                  <span className="text-white/30 text-xs">Débutant</span>
-                  <span className="text-white/30 text-xs">Expert</span>
-                </div>
               </div>
             );
           })}
-        </div> <br />
-        <h1>MES AFFICHES</h1><br />
+        </div>
 
-        {/* Tools visual grid */}
-        <div className="flex justify">
-  <img width={550} height={550} src="/images/image1.jpg"></img>
-  <img width={550} height={550} src="/images/image3.jpg"></img> 
-</div>
-<br /><br />
-      <div className="flex justify">
-  <img width={550} height={550} src="/images/image4.jpg"></img>
-  <img width={550} height={550} src="/images/image5.jpg"></img>
-</div> <br />
-<h1>MES MOCKUP</h1><br />
-  <div className="flex justify">
-  <img width={550} height={550} src="/images/image7.jpg"></img>
-  <img width={550} height={550} src="/images/image8.jpg"></img>
-</div> <br />
-<h1>MES ANIMATIONS</h1><br />
-<div className="flex justify">
-  <video autoPlay width="370" height="160" controls poster="image.jpg"><source src="/vidéos/vidéo1.mp4" type="video/mp4" /></video>
-    <video autoPlay width="370" height="160" controls poster="image.jpg"><source src="/vidéos/vidéo2.mp4" type="video/mp4" /></video>
-    <video autoPlay width="370" height="160" controls poster="image.jpg"><source src="/vidéos/vidéo3.mp4" type="video/mp4" /></video>
+        {/* --- GALERIE IMAGES (Responsive Grid) --- */}
+        <SectionTitle>MES AFFICHES</SectionTitle>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {["image1.jpg", "image3.jpg", "image4.jpg", "image5.jpg"].map((img, idx) => (
+            <div key={idx} className="overflow-hidden rounded-xl border border-white/10 group">
+              <img 
+                src={`/images/${img}`} 
+                alt={`Affiche ${idx + 1}`}
+                className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+          ))}
+        </div>
 
-</div> <br />
-<div className="flex justify">
-  <video autoPlay width="370" height="160" controls poster="image.jpg"><source src="/vidéos/vidéo4.mp4" type="video/mp4" /></video>
-    <video autoPlay width="370" height="160" controls poster="image.jpg"><source src="/vidéos/vidéo5.mp4" type="video/mp4" /></video>
-    <video autoPlay width="370" height="160" controls poster="image.jpg"><source src="/vidéos/vidéo6.mp4" type="video/mp4" /></video>
+        <SectionTitle>MES MOCKUPS</SectionTitle>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+           {["image7.jpg", "image8.jpg"].map((img, idx) => (
+            <div key={idx} className="overflow-hidden rounded-xl border border-white/10 group">
+              <img 
+                src={`/images/${img}`} 
+                alt={`Mockup ${idx + 1}`}
+                className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+          ))}
+        </div>
 
-</div>
-
+        {/* --- GALERIE VIDÉOS (Responsive Grid) --- */}
+        <SectionTitle>MES ANIMATIONS</SectionTitle>
+        
+        {/* Grille de 3 colonnes sur grand écran, 1 sur mobile */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[1, 2, 3, 4, 5, 6].map((num) => (
+            <div key={num} className="bg-black/40 rounded-xl overflow-hidden border border-white/10">
+              <video 
+                autoPlay 
+                muted 
+                loop 
+                playsInline
+                controls
+                className="w-full h-auto aspect-video object-cover"
+                poster="/images/image.jpg" // Assure-toi que cette image existe
+              >
+                <source src={`/vidéos/vidéo${num}.mp4`} type="video/mp4" />
+                Votre navigateur ne supporte pas la vidéo.
+              </video>
+            </div>
+          ))}
+        </div>
 
       </div>
     </section>

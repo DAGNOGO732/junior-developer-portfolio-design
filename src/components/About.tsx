@@ -16,17 +16,28 @@ export default function About() {
             À Propos de Moi
           </h2>
           <div className="mt-4 mx-auto w-20 h-1 bg-gradient-to-r from-[#c026d3] to-[#7e22ce] rounded-full" />
-          <div className="flex justify">
-<video autoPlay width="1140" height="160" controls poster="image.jpg" muted loop>
-  <source src="/vidéos/présentation.mp4" type="video/mp4" />
-</video>
-
+          
+          {/* Vidéo Responsive */}
+          <div className="mt-10 max-w-4xl mx-auto">
+            <video 
+              autoPlay 
+              muted 
+              loop 
+              playsInline
+              controls 
+              className="w-full h-auto rounded-2xl border border-white/10 shadow-2xl shadow-[#c026d3]/10 aspect-video object-cover"
+              poster="/images/image.jpg" // Ajoute une image de couverture si possible
+            >
+              <source src="/vidéos/présentation.mp4" type="video/mp4" />
+              Votre navigateur ne supporte pas la vidéo.
+            </video>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left – Text */}
-          <div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          {/* Left – Text & Contact */}
+          <div className="space-y-6">
+            {/* Profile Card */}
             <div className="bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-[#c026d3]/30 transition-all duration-300">
               <div className="flex items-center gap-3 mb-6">
                 <div className="p-3 bg-[#c026d3]/20 rounded-xl">
@@ -46,8 +57,8 @@ export default function About() {
               </p>
             </div>
 
-            {/* Contact Info */}
-            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* Contact Info Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
                 {
                   icon: (
@@ -87,8 +98,9 @@ export default function About() {
                       {item.icon}
                     </svg>
                   </div>
-                  <div>
+                  <div className="min-w-0"> {/* min-w-0 empêche le débordement flex */}
                     <p className="text-white/40 text-xs mb-0.5">{item.label}</p>
+                    {/* break-all est crucial ici pour l'email sur mobile */}
                     <p className="text-white/80 text-sm font-medium break-all">{item.value}</p>
                   </div>
                 </div>
